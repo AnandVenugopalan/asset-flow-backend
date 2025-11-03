@@ -18,10 +18,10 @@ export class SeedService {
   ) {}
 
   async seed() {
-    // Clear existing data
-    await this.assetTransferRepository.clear();
-    await this.assetRepository.clear();
-    await this.userRepository.clear();
+     // Delete existing data (avoid FK constraint errors)
+  await this.assetTransferRepository.createQueryBuilder().delete().execute();
+  await this.assetRepository.createQueryBuilder().delete().execute();
+  await this.userRepository.createQueryBuilder().delete().execute();
 
     // Create users
     const hashedPassword = await bcrypt.hash('password123', 10);
@@ -73,13 +73,11 @@ export class SeedService {
     const transfers = [
       {
         assetId: savedAssets[0].id,
-        fromUserId: undefined,
         toUserId: savedUsers[2].id,
         remarks: 'Initial assignment',
       },
       {
         assetId: savedAssets[2].id,
-        fromUserId: undefined,
         toUserId: savedUsers[3].id,
         remarks: 'Assigned to new employee',
       },
