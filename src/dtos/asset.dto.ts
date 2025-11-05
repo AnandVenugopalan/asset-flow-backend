@@ -1,67 +1,21 @@
-import { IsNotEmpty, IsString, IsDateString, IsNumber, IsOptional, IsEnum } from 'class-validator';
-import { AssetStatus } from '../entities/asset.entity';
-
-export class CreateAssetDto {
-  @IsNotEmpty()
-  @IsString()
-  name: string;
-
-  @IsNotEmpty()
-  @IsString()
-  type: string;
-
-  @IsNotEmpty()
-  @IsString()
-  category: string;
-
-  @IsEnum(AssetStatus)
-  status: AssetStatus;
-
-  @IsOptional()
-  @IsString()
+// ...existing code...
+export class AssetDto {
+  category?: string;
+  status?: string;
   assignedToId?: string;
-
-  @IsDateString()
-  purchaseDate: string;
-
-  @IsNotEmpty()
-  @IsString()
-  location: string;
-
-  @IsNumber()
-  value: number;
+  purchaseDate?: string;
+  location?: string;
+  value?: number;
 }
 
+// ...existing code...
 export class UpdateAssetDto {
-  @IsOptional()
-  @IsString()
   name?: string;
-
-  @IsOptional()
-  @IsString()
   type?: string;
-
-  @IsOptional()
-  @IsString()
   category?: string;
-
-  @IsOptional()
-  @IsEnum(AssetStatus)
-  status?: AssetStatus;
-
-  @IsOptional()
-  @IsString()
+  status?: string;
   assignedToId?: string;
-
-  @IsOptional()
-  @IsDateString()
   purchaseDate?: string;
-
-  @IsOptional()
-  @IsString()
   location?: string;
-
-  @IsOptional()
-  @IsNumber()
   value?: number;
 }

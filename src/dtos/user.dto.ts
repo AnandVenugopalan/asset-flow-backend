@@ -34,3 +34,22 @@ export class UpdateUserDto {
   @IsEnum(UserRole)
   role?: UserRole;
 }
+
+export class UserDto {
+  id?: string;
+  username: string;
+  email: string;
+  role: string;
+  department?: string;
+}
+
+export class RoleDto {
+  id?: string;
+  name: string;
+  permissions: string[];
+}
+
+export class DepartmentDto {
+  id?: string;
+  name: string;
+}

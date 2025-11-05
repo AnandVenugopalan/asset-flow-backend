@@ -1,3 +1,4 @@
+// ...existing code...
 import { IsNotEmpty, IsString, IsEnum, IsOptional, IsDateString, IsNumber } from 'class-validator';
 import { AssetStatus } from '../entities/asset.entity';
 

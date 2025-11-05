@@ -45,4 +45,23 @@ export class AssetsService {
       throw new NotFoundException(`Asset with ID ${id} not found`);
     }
   }
+  async getHierarchy(id: string): Promise<any> {
+    // Stub: return asset hierarchy
+    return { assetId: id, hierarchy: [] };
+  }
+
+  async getMovement(id: string): Promise<any> {
+    // Stub: return movement logs
+    return { assetId: id, movements: [] };
+  }
+
+  async getAudit(id: string): Promise<any> {
+    // Stub: return audit logs
+    return { assetId: id, audits: [] };
+  }
+
+  async addAttachment(id: string, file: any): Promise<any> {
+    // Stub: add attachment
+    return { assetId: id, file };
+  }
 }
